@@ -1,0 +1,26 @@
+Dress: black, blue, purple, red, white.
+Name: Anna, Erica, Lauren, Megan, Sara.
+Profession: actress, electrician, programmer, psychologist, surgeon.
+Type: a-line, bodycon, sheath, sundress, wrap.
+Discount: 5%, 10%, 15%, 20%, 25%.
+Age: 30, 33, 36, 39, 41.
+The Programmer is exactly to the right of the Surgeon.
+The woman wearing the Black dress is somewhere to the right of the woman who got the 10% discount.
+The Actress is next to the woman wearing the Black dress.
+The Psychologist is next to the woman wearing the Bodycon dress.
+Megan is the oldest woman.
+The lady wearing the White dress is somewhere to the left of the 36 years old woman.
+The woman wearing the Sheath dress is next to the woman that got 15% off on her new dress.
+The woman wearing the Purple dress is somewhere between the youngest woman and the woman wearing the White dress, in that order.
+The lady who got the smallest discount is exactly to the left of the lady who got the 15% discount.
+The woman who got the 20% discount is somewhere to the right of the woman wearing the White dress.
+The Surgeon is exactly to the left of the woman wearing the Sundress.
+Anna is wearing the White dress.
+Megan is immediately before the woman who got the 5% discount.
+The Sheath dress is Red.
+At one of the ends is the 33 years old woman.
+Sara is exactly to the right of the lady wearing the Bodycon dress.
+Lauren is 33 years old.
+At one of the ends is the woman wearing the Sheath dress.
+The woman who got the 10% discount is exactly to the left of the woman who got 5% off.
+The A-line dress is Purple.

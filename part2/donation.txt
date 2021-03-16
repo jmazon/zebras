@@ -1,0 +1,28 @@
+Shirt: black, blue, green, purple, red.
+Name: Andrea, Brooke, Kathleen, Meghan, Nichole.
+Blood: A+, AB+, B+, B-, O-.
+Age: 25, 30, 35, 40, 45.
+Weight: 120, 130, 140, 150, 160.
+Job: actress, chef, engineer, florist, policewoman.
+The A+ donor is next to the B+ donor.
+Brooke is at one of the ends.
+The woman wearing the Black shirt is somewhere to the left of the 150 lb woman.
+The Actress is next to the Chef.
+Kathleen is 40 years old.
+The Florist is somewhere to the right of the woman wearing the Purple shirt.
+The oldest donor weighs 130 lb.
+Brooke is next to Nichole.
+The 35 years old woman is exactly to the left of the 30 years old woman.
+The 120 lb donor is somewhere between the the O- donor and the 150 lb donor, in that order.
+Kathleen is at one of the ends.
+The woman wearing the Purple shirt is somewhere to the right of the woman wearing the Green shirt.
+The B+ donor weighs 140 lb.
+The youngest woman is next to the 30 years old woman.
+The AB+ woman considered universal recipient is exactly to the left of the A+ donor.
+Meghan is somewhere to the right of the woman wearing the Purple shirt.
+The woman wearing the Green shirt is somewhere between the Actress and the woman wearing the Red shirt, in that order.
+At one of the ends is the 130 lb woman.
+The O- universal donor is 35 years old.
+The Florist is somewhere between the Actress and the Engineer, in that order.
+The woman wearing the Blue shirt is somewhere to the left of the woman wearing the Red shirt.
+The AB+ donor is next to the youngest woman.
