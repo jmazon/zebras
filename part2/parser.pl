@@ -2,8 +2,12 @@
 
 :- [library(dcg/basics)].
 
+% Tokenize word by word, for a flaky definition of “word”
+
 words([W|Ws]) --> word(W), blanks, !, words(Ws).
 words([]) --> [].
+
+% Tokenizing support: character classes
 
 punct(".:").
 skip(",%").
@@ -13,6 +17,8 @@ word_complement(Cs) :-
     punct(P), skip(S), whitespace(W),
     string_concat(P,S,T), string_concat(T,W,Cs).
 
+% Tokenizing: actual word scanning
+
 word(T) -->
     { word_complement(Cp) },
     string_without(Cp, Codes),
@@ -21,11 +27,15 @@ word(T) -->
 word(T) --> [C], { punct(P), string_codes(P,Cs), member(C,Cs), atom_codes(T,[C]) }.
 word(T) --> [C], { skip(S), string_codes(S,Cs), member(C,Cs) }, blanks, word(T).
 
+% Tokenizing support: conversion to a Prolog term
+
 read_codes(Codes,Number) :-
     catch(number_codes(Number,Codes),
           error(syntax_error(illegal_number),_),
           fail).
 read_codes(Codes,Token) :- atom_codes(Atom,Codes), downcase_atom(Atom,Token).
+
+% Parsing: domain header
 
 domain([F|Fs]) --> feature(F), domain(Fs).
 domain([]) --> [].
@@ -34,12 +44,18 @@ feature(feature(Name,Vs)) --> [Name,':'], values(Vs).
 values([]) --> ['.'], !.
 values([V|Vs]) --> [V], values(Vs).
 
+% Parsing support: domain values extraction
+
 domain_values(D,Vs) :- maplist(feature_values,D,Vss), append(Vss,Vs).
 feature_values(feature(_,Vs),Vs).
+
+% Parsing support: special words
 
 connectors([left,right,next,neighbour,'.',somewhere,between,and]).
 positions([centre,first,ends]).
 relatives([youngest,oldest]).
+
+% Parsing support: filtering out the chaff
 
 :- dynamic subst/2.
 
@@ -54,6 +70,8 @@ cleanse(D,Ts,C) :-
     maplist(perform_subst,Tmp,C).
 member_(L,E) :- member(E,L).
 perform_subst(F,T) :- subst(F,T), ! ; F = T.
+
+% Parsing: constraint list
 
 constraints(Dom,[C|Cs]) --> constraint(Dom,C), ['.'], constraints(Dom,Cs).
 constraints(_,[]) --> [].
@@ -76,11 +94,15 @@ constraint(Dom,ordered([A,B,C])) -->
     [and],
     attribute(Dom,C).
 
+% Parsing: attributes
+
 attribute(Dom,attr(age,Young)) --> [youngest], { feature_min(Dom,age,Young) }.
 attribute(Dom,attr(age,Young)) --> [oldest], { feature_max(Dom,age,Young) }.
 attribute(Dom,attr(F,Min)) --> [min(F)], { feature_min(Dom,F,Min) }.
 attribute(Dom,attr(F,V)) --> [V], { member(feature(F,Vs),Dom), member(V,Vs) }.
 attribute(_,attr(position,P)) --> [P], { positions(Ps), member(P,Ps) }.
+
+% Parsing: special attributes
 
 feature_min(Dom,F,Min) :-
     member(feature(F,Vs),Dom),
@@ -88,6 +110,8 @@ feature_min(Dom,F,Min) :-
 feature_max(Dom,F,Min) :-
     member(feature(F,Vs),Dom),
     max_member(Min,Vs).
+
+% Global parsing wrapper
 
 read_zebra(FileName,puzzle(Dom,Constraints)) :-
     phrase_from_file(words(Words),FileName),
